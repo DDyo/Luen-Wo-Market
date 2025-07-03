@@ -3,29 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My USDZ AR Model</title>
+    <title>AR Quick Look for USDZ</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            margin: 20px;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
         }
-        img {
-            max-width: 200px;
-            height: auto;
-            border: 2px solid #ccc;
-            border-radius: 10px;
+        h1 {
+            color: #333;
+            font-size: 1.8em;
+            margin-bottom: 15px;
         }
         p {
-            color: #666;
+            font-size: 1.2em;
+            color: #555;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .highlight {
+            color: #d32f2f;
+            font-weight: bold;
+        }
+        #ar-image {
+            max-width: 80%;
+            height: auto;
+            border: 2px solid #007bff;
+            border-radius: 8px;
+            margin: 20px auto;
+            display: block;
+        }
+        #ar-instruction {
+            font-size: 1.4em;
+            color: #333;
+            margin: 10px 0;
         }
     </style>
+    <script>
+        // JavaScript to log user agent and update link text
+        window.onload = function() {
+            console.log('Page loaded. User agent:', navigator.userAgent);
+            const isIphoneSafari = /iPhone.*Safari/i.test(navigator.userAgent);
+            console.log('Is iPhone Safari?', isIphoneSafari);
+            
+            // Update message and instruction
+            document.getElementById('message').innerHTML = 'Luen Wo Market';
+            document.getElementById('ar-instruction').innerHTML = 'Tap the image to view Luen Wo Market in AR!';
+            
+            // Update manual link text based on device
+            if (isIphoneSafari) {
+                console.log('Setting manual link text for iPhone Safari');
+                document.getElementById('manual-link').innerHTML = 'tap here to view in AR';
+            } else {
+                console.log('Setting manual link text for other devices');
+                document.getElementById('manual-link').innerText = 'click here to view the model';
+            }
+        };
+    </script>
 </head>
 <body>
-    <h1>View My 3D Model in AR</h1>
-    <a rel="ar" href="COURT50F.usdz">
-        <img src="COURT.JPG" alt="3D Model Preview">
+    <h1 id="message">Processing COURT50F.usdz...</h1>
+    <a href="marketF4.usdz" rel="ar">
+        <img id="ar-image" src="MARKET.JPG" alt="Preview of marketF4.usdz">
     </a>
-    <p>Tap the image to view in AR (requires iPhone/iPad with iOS 12+ and Safari).</p>
+    <div id="ar-instruction">Tap the image to view <span class="highlight">marketF4.usdz</span> in AR!</div>
+    <p>If the action doesn't start, 
+        <a href="marketF4.usdz" rel="ar" id="manual-link">tap here to view in AR</a> or 
+        <a href="marketF4.usdz" download>click here to download</a>.
+    </p>
 </body>
 </html>
