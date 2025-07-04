@@ -53,11 +53,11 @@
             console.log('Page loaded. User agent:', navigator.userAgent);
             const isIphoneSafari = /iPhone.*Safari/i.test(navigator.userAgent);
             console.log('Is iPhone Safari?', isIphoneSafari);
-            
+
             // Update message and instruction
-            document.getElementById('message').innerHTML = 'Enchi Lodge';
-            document.getElementById('ar-instruction').innerHTML = 'Tap the image to view Enchi Lodge in AR!';
-            
+            document.getElementById('message').innerHTML = 'Luen Wo Market';
+            document.getElementById('ar-instruction').innerHTML = 'Tap the image to view Luen Wo Market in AR!';
+
             // Update manual link text based on device
             if (isIphoneSafari) {
                 console.log('Setting manual link text for iPhone Safari');
@@ -70,13 +70,14 @@
     </script>
 </head>
 <body>
-    <a href="house1.usdz" rel="ar">
-        <img id="ar-image" src="house.jpeg" alt="Preview of house1.usdz">
+    <a href="marketF4.usdz" rel="ar">
+        <img id="ar-image" src="market.jpg" alt="Preview of marketF4.usdz">
     </a>
-    <div id="ar-instruction">Tap the image to view Enchi Lodge in AR!</div>
+    <div id="ar-instruction">Tap the image to view <span class="highlight">marketF4.usdz</span> in AR!</div>
+    <div id="ar-instruction">Tap the image to view Luen Wo Market in AR!</div>
     <p>If the action doesn't start, 
-        <a href="house1.usdz" rel="ar" id="manual-link">tap here to view in AR</a> or 
-        <a href="house1.usdz" download>click here to download</a>.
+        <a href="marketF4.usdz" rel="ar" id="manual-link">tap here to view in AR</a> or 
+        <a href="marketF4.usdz" download>click here to download</a>.
     </p>
 </body>
 </html>
